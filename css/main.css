@@ -10,6 +10,8 @@ body {
   text-align: center;
   padding-bottom: 4em;
   color: white;
+  background-size: cover;
+  height: 100vh;
 }
 
 header {
@@ -124,11 +126,126 @@ h2 {
   line-height: 2em;
 }
 
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  place-content: center;
+  display: none;
+  z-index: 1;
+  color: white;
+}
+.animated-overlay {
+  animation: dark 3s forwards;
+}
+.animated-head {
+  animation: slide 2s forwards;
+}
 @media (min-width: 720px) {
   .form-container {
     margin: 2em -4em 0;
   }
   section {
     margin: 0 4em;
+  }
+}
+@media (min-width: 920px) {
+  .bg-hero {
+    text-align: left;
+  }
+  .hero-bg section {
+    width: 65%;
+  }
+  .bg-hero p {
+    margin: 0 0 3em;
+  }
+  .form-container {
+    margin: 2em 0 0;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  }
+  form {
+    display: flex;
+  }
+  .form-container label {
+    margin: 0;
+  }
+  .form-left {
+    width: 70%;
+  }
+  .form-left p {
+    margin-bottom: 0;
+  }
+  input[type="button"] {
+    height: fit-content;
+    font-size: 1.1em;
+    margin-left: 1em;
+    margin-top: 2.2em;
+    padding: 0.7em 0;
+    width: 30%;
+  }
+  header {
+    padding-top: 1.5em;
+  }
+  .authentic {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "bowl content";
+  }
+  .right-col {
+    grid-area: content;
+    padding: 0 10%;
+    text-align: left;
+    align-self: center;
+  }
+  img {
+    grid-area: bowl;
+  }
+  h2 {
+    margin: 0;
+  }
+}
+@media (min-width: 1275px) {
+  .bg-hero section {
+    width: 45%;
+    margin: 0 15%;
+  }
+}
+.top {
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dark {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes slide {
+  from {
+    transform: translateX(1.5em);
+  }
+  to {
+    transform: translateX(0);
   }
 }

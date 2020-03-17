@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <div class="overlay" id="overlay">
+      <h3>searching now ...</h3>
+    </div>
     <div class="bg-hero">
       <section class="top">
         <header>
           <a href="#">yummy.eats</a>
         </header>
-        <h1><span>the healthy</span>Eating experience</h1>
+        <h1><span id="head">the healthy</span>Eating experience</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
           itaque minus velit mollitia aspernatur aliquid ea incidunt illo dolor
@@ -25,7 +28,7 @@
               <input type="text" name="city" />
               <p>Example : 'San Diego'</p>
             </div>
-            <input type="button" value="Find Food Now" />
+            <input type="button" value="Find Food Now" id="ctn-btn" />
           </form>
         </div>
       </section>
@@ -47,5 +50,24 @@
         height="400px"
       />
     </section>
+    <script>
+      let btn = document.getElementById("ctn-btn");
+      let overlay = document.getElementById("overlay");
+      let head = document.getElementById("head");
+      btn.addEventListener("click", () => {
+        overlay.style.display = "grid";
+        overlay.classList.add("animated-overlay");
+        setTimeout(() => {
+          overlay.style.display = "none";
+          overlay.classList.remove("animated-overlay");
+        }, 3000);
+      });
+      head.addEventListener("mouseover", () => {
+        head.classList.add("animated-head");
+        setTimeout(() => {
+          head.classList.remove("animated-head");
+        }, 2000);
+      });
+    </script>
   </body>
 </html>
